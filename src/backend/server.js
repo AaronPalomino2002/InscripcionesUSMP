@@ -8,7 +8,9 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.get("/api/postulantes", (req, res) => res.status(200));
+app.get("/api/postulantes", (req, res) =>
+  res.status(200).json({ message: "Alive" })
+);
 
 app.post("/api/postulantes", async (req, res) => {
   try {
