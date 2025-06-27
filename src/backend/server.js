@@ -3,7 +3,7 @@ import cors from "cors";
 import pool from "./db.js"; // <-- usa import en lugar de require
 
 const app = express();
-app.use(cors());
+app.use(cors());    
 app.use(express.json());
 
 app.post("/api/postulantes", async (req, res) => {
@@ -12,7 +12,7 @@ app.post("/api/postulantes", async (req, res) => {
     const result = await pool.query(
       `INSERT INTO postulantes (
         dni_num, nombres, apellidos, correo, celular, distrito, dni, colegio, grado,
-        fuente, modo_ingreso, padre_madre, celular_padre, dni_padre, carreras,
+        fuente, modo_ingreso, padre_madre, celular_padre, dni_padre, carreras,  
         desea_postular, autoriza, nombres_padre, apellidos_padre
       ) VALUES (
         $1, $2, $3, $4, $5, $6, $7, $8, $9,

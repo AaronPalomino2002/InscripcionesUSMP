@@ -101,10 +101,10 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://usmp-backend.onrender.com/api/postulantes",
+        "https://webinscripcionesusmp.onrender.com/api/postulantes",
         {
           method: "POST",
-          headers: {
+          headers: { 
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
