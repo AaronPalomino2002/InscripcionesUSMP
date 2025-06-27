@@ -4,7 +4,13 @@ import pool from "./db.js"; // <-- usa import en lugar de require
 import morgan from "morgan";
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    methods: ["POST", "GET", "PUT"],
+    origin: "*",
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
 
