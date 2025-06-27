@@ -42,7 +42,7 @@ app.post("/api/postulantes", async (req, res) => {
       ]
     );
 
-    res.status(201).json({ success: true, data: result.rows[0] });
+   return res.status(201).json({ success: true, data: result.rows[0] });
   } catch (err) {
     console.error("❌ Error al insertar postulante:", err);
     res
