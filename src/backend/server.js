@@ -6,7 +6,7 @@ import morgan from "morgan";
 const app = express();
 app.use(
   cors({
-    methods: ["POST", "GET", "PUT"],
+    methods: ["POST", "GET", "PUT", "OPTIONS"],
     origin: "*",
     allowedHeaders: ["Content-Type"],
   })

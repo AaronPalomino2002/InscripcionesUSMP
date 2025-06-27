@@ -101,7 +101,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://webinscripcionesusmp.onrender.com/api/postulantes",
+        "https://inscripcionesusmp.onrender.com/api/postulantes",
         {
           method: "POST",
           headers: {
