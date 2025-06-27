@@ -1,4 +1,6 @@
-const { Pool } = require("pg");
+// db.js
+import pkg from "pg";
+const { Pool } = pkg;
 
 const pool = new Pool({
   user: "dbinscritos_user",
@@ -6,7 +8,9 @@ const pool = new Pool({
   database: "dbinscritos",
   password: "8AA6ZcVNnNqmqnK3xczlFbLcL5tWbtLO",
   port: 5432,
-  ssl: true, // asegúrate de usar esto para Render
+  ssl: {
+    rejectUnauthorized: false, // Recomendado para PostgreSQL en Render
+  },
 });
 
-module.exports = pool;
+export default pool;

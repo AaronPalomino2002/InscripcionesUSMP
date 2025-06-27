@@ -1,13 +1,11 @@
 import express from "express";
 import cors from "cors";
-import pg from "pg";
-const { pool } = pg;
+import pool from "./db.js"; // <-- usa import en lugar de require
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Ruta para registrar un postulante
 app.post("/api/postulantes", async (req, res) => {
   try {
     const data = req.body;
@@ -57,6 +55,7 @@ app.get("/", (req, res) => {
   res.send("🟢 API de Postulantes activa");
 });
 
-app.listen(3001, () => {
-  console.log("🚀 Servidor backend corriendo en http://localhost:3001");
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor backend corriendo en http://localhost:${PORT}`);
 });
