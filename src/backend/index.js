@@ -1,2 +1,2 @@
 // index.js
-require("./server");
+import "./server.js";
