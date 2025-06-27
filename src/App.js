@@ -104,7 +104,7 @@ function App() {
         "https://webinscripcionesusmp.onrender.com/api/postulantes",
         {
           method: "POST",
-          headers: { 
+          headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),

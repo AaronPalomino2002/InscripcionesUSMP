@@ -1,13 +1,19 @@
 import express from "express";
 import cors from "cors";
 import pool from "./db.js"; // <-- usa import en lugar de require
+import morgan from "morgan";
 
 const app = express();
-app.use(cors());    
+app.use(cors());
 app.use(express.json());
+app.use(morgan("dev"));
+
+app.get("/api/postulantes", (req, res) => res.status(200));
 
 app.post("/api/postulantes", async (req, res) => {
   try {
+    console.log("HIT");
+
     const data = req.body;
     const result = await pool.query(
       `INSERT INTO postulantes (
@@ -42,7 +48,7 @@ app.post("/api/postulantes", async (req, res) => {
       ]
     );
 
-   return res.status(201).json({ success: true, data: result.rows[0] });
+    return res.status(201).json({ success: true, data: result.rows[0] });
   } catch (err) {
     console.error("❌ Error al insertar postulante:", err);
     res
