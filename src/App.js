@@ -100,13 +100,16 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/api/postulantes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://usmp-backend.onrender.com/api/postulantes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Error al registrar postulante");
@@ -156,6 +159,7 @@ function App() {
             value={formData.dniNum}
             onChange={handleChange}
             style={{ ...styles.input, flex: 1 }}
+            maxLength={8}
           />
           <button
             type="button"
